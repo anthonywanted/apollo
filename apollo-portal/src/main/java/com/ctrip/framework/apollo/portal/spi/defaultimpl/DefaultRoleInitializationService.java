@@ -161,15 +161,4 @@ public class DefaultRoleInitializationService implements RoleInitializationServi
     rolePermissionService
         .createRoleWithPermissions(role, Sets.newHashSet(createdPermission.getId()));
   }
-
-  private void createNamespaceEnvRole(String appId, String namespaceName, String permissionType, String env,
-                                      String roleName, String operator) {
-    Permission permission =
-        createPermission(RoleUtils.buildNamespaceTargetId(appId, namespaceName, env), permissionType, operator);
-    Permission createdPermission = rolePermissionService.createPermission(permission);
-
-    Role role = createRole(roleName, operator);
-    rolePermissionService
-        .createRoleWithPermissions(role, Sets.newHashSet(createdPermission.getId()));
-  }
 }

@@ -84,18 +84,6 @@ public class PermissionController {
     return ResponseEntity.ok().body(permissionCondition);
   }
 
-  @RequestMapping(value = "/apps/{appId}/envs/{env}/namespaces/{namespaceName}/permissions/{permissionType}", method = RequestMethod.GET)
-  public ResponseEntity<PermissionCondition> hasPermission(@PathVariable String appId, @PathVariable String env, @PathVariable String namespaceName,
-                                                           @PathVariable String permissionType) {
-    PermissionCondition permissionCondition = new PermissionCondition();
-
-    permissionCondition.setHasPermission(
-        rolePermissionService.userHasPermission(userInfoHolder.getUser().getUserId(), permissionType,
-            RoleUtils.buildNamespaceTargetId(appId, namespaceName, env)));
-
-    return ResponseEntity.ok().body(permissionCondition);
-  }
-
   @RequestMapping(value = "/permissions/root", method = RequestMethod.GET)
   public ResponseEntity<PermissionCondition> hasRootPermission() {
     PermissionCondition permissionCondition = new PermissionCondition();
