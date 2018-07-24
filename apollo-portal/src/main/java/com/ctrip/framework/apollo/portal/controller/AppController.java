@@ -3,7 +3,6 @@ package com.ctrip.framework.apollo.portal.controller;
 
 import com.ctrip.framework.apollo.core.ConfigConsts;
 import com.ctrip.framework.apollo.portal.service.RoleInitializationService;
-import com.google.common.collect.Sets;
 
 import com.ctrip.framework.apollo.common.entity.App;
 import com.ctrip.framework.apollo.common.exception.BadRequestException;
